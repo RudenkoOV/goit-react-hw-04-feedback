@@ -30,6 +30,15 @@ export default function App () {
     return good + neutral + bad;
   }
 
+  function feedbacks() {
+    const feedbackObj = {
+      'Good': good,
+      'Neutral': neutral,
+      'Bad': bad
+    }
+    return feedbackObj
+  }
+
   function positiveFeedbacksPrecentage () {
     return totalFeedbacks() > 0 ? `${Math.round((good) / (totalFeedbacks())*100)} %` : `0%`
   }
@@ -38,7 +47,7 @@ export default function App () {
       <><Section title='Please leave Feedback'>
         <FeedbackOptions onLeaveFeedback={onLeaveFeedback} options={btnNameFeedback}></FeedbackOptions>
       </Section><Section title='Statistic'>
-          {totalFeedbacks() ? <Statistics feedbacks={totalFeedbacks()} total={totalFeedbacks()} positivePercentage={positiveFeedbacksPrecentage()}></Statistics>
+          {totalFeedbacks() ? <Statistics feedbacks={feedbacks()} total={totalFeedbacks()} positivePercentage={positiveFeedbacksPrecentage()}></Statistics>
           : <Section title='There is no Feedback'></Section>}
         </Section></>
     )

@@ -6,7 +6,7 @@ export const Statistics = ({ feedbacks, total, positivePercentage }) => {
         <div>
             {Object.keys(feedbacks).map(feedback => (
                 <Text key={feedback}>
-                    feedback: {feedbacks[feedback]}
+                    {feedback}: {feedbacks[feedback]}
                 </Text>
             ))}
             <Text>Total:{total}</Text>
